@@ -13,11 +13,6 @@ export default {
       type: String,
       default: ''
     }
-  },
-  data() {
-    return {
-      text: 'Đây là data của parent'
-    }
   }
 }
 </script>
