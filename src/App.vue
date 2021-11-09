@@ -1,63 +1,34 @@
 <template>
-  <div class="container">
-    <friend-contact v-for="teacher in teachers"
-    :id="teacher.id" 
-    :name="teacher.name" 
-    :phone="teacher.phone" 
-    :email="teacher.email"
-    :isFavorite="teacher.isFavorite"
-    :key="teacher.id"
-    @eventToggleFavorite="handleEventToggleFavorite"
-    @eventToggleDetail="handleEventToggleDetail"
-    />
+  <div class="wrap">
+    <parent />
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
+    <emit-custom/>
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
+    <slots/>
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
+    <scoped-slot/>
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
+    <provide-inject/>
   </div>
 </template>
 
 <script>
-import FriendContact from './components/FriendContact.vue'
+import EmitCustom from './components/emitCustom/EmitCustom.vue'
+import Parent from './components/props/Parent.vue'
+import ProvideInject from './components/provideInject/ProvideInject.vue'
+import ScopedSlot from './components/slots/ScopedSlot.vue'
+import Slots from './components/slots/Slots.vue'
 export default {
-  components: { FriendContact },
-  name: 'App',
-  data() {
-    return {
-      teachers: [
-        {
-          id: 1,
-          name: 'Quang',
-          phone: 123123123,
-          email: 'quang@gmail.com',
-          isFavorite: false
-        },
-        {
-          id: 2,
-          name: 'Lan',
-          phone: 321321321,
-          email: 'lan@gmail.com',
-          isFavorite: false
-        }
-      ]
-    }
-  },
-  methods: {
-    handleEventToggleFavorite(id) {
-      // Tất cả các cách đều được
-      const teacherIndex = this.teachers.findIndex(item => item.id === id) //index
-      if (teacherIndex >= 0) {
-        const teacher = this.teachers[teacherIndex]
-        teacher.isFavorite = !teacher.isFavorite
-        // this.teachers[teacherIndex].isFavorite = !teacher.isFavorite
-        
-      }
-
-      // const teacher = this.teachers.find(item => item.id === id)
-      // if (teacher) {
-      //   teacher.isFavorite = !teacher.isFavorite
-      // }
-    },
-    handleEventToggleDetail(id) {
-      console.log(id)
-    }
-  }
+  components: { ProvideInject, Parent, EmitCustom, Slots, ScopedSlot },
+  name: 'App'
 }
 </script>
 

@@ -7,6 +7,7 @@
         <li>Phone: {{phone}}</li>
         <li>Email: {{email}}</li>
     </ul>
+    {{students}}
   </div>
 </template>
 
