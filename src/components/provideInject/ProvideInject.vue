@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import {computed } from 'vue'
 import ProvideInjectChild from './ProvideInjectChild.vue'
 export default {
   name: 'ProvideInject',
@@ -16,8 +17,9 @@ export default {
   // },
   provide() { // Nhà cung cấp
     return {
-      itemsProvide: this.items,
-      alertDemo: this.alertDemo
+      // itemsProvide: this.items, // Vue2 syntax, data static
+      itemsProvide: computed(() => this.items), // Vue3 syntax, data can be reactive
+      changeDataItems: this.changeDataItems
     }
   },
   data() {
@@ -26,8 +28,8 @@ export default {
     }
   },
   methods: {
-    alertDemo() {
-      alert('demo hehe')
+    changeDataItems() {
+      this.items = [4,5,6]
     }
   }
 }

@@ -14,7 +14,13 @@ export default {
   name: 'Parent',
   data() {
     return {
-      text: 'Đây là data của parent'
+      text: 'Đây là data của parent',
+      dataArr: [1,2,3]
+    }
+  },
+  computed: {
+    textFormat() {
+      return this.text + ' computed'
     }
   }
 }
