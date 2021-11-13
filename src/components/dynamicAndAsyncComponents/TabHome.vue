@@ -1,6 +1,6 @@
 <template>
-    <div class="tab-home">
-        <div class="demo-tab">Home component</div>
+    <div class="demo-tab">
+        <p>Home component</p>
     </div>
 </template>
 

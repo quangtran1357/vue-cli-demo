@@ -1,5 +1,7 @@
 <template>
-<div class="demo-tab">Archive component</div>
+    <div class="demo-tab">
+        <p>Archive component</p>
+    </div>
 </template>
 
 <script>

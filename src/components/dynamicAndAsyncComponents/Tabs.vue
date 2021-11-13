@@ -1,16 +1,16 @@
 <template>
     <div class="tabs">
-        <h2 class="demo-tab">Home component</h2>
+        <h1 class="demo-tab">Dynamic and Async component demo</h1>
         <div id="dynamic-component-demo" class="demo">
             <button
                 v-for="tab in tabs"
                 :key="tab.id"
                 :class="['tab-button', { active: currentTab === tab }]"
-                @click="currentTab = tab.title"
+                @click="currentTab = tab.component"
             >
-                {{ tab }}
+                {{ tab.title }}
             </button>
-            <component :is="TabHome" class="tab"></component>
+            <component :is="currentTabComponent" class="tab"></component>
         </div>
     </div>
 </template>
@@ -21,6 +21,7 @@ import TabPost from './TabPost.vue'
 import TabArchive from './TabArchive.vue'
 export default {
     name: 'Tabs',
+    components: {TabHome, TabPost, TabArchive},
     data() {
         return {
             currentTab: TabHome,
@@ -28,17 +29,17 @@ export default {
                 {
                     id: 1,
                     component: TabHome,
-                    title: 'TabHome'
+                    title: 'Tab Home'
                 },
                 {
                     id: 2,
                     component: TabPost,
-                    title: 'TabPost'
+                    title: 'Tab Post'
                 },
                 {
                     id: 3,
                     component: TabArchive,
-                    title: 'TabArchive'
+                    title: 'Tab Archive'
                 }
             ]
         }

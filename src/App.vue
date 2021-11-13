@@ -20,13 +20,16 @@
     <br>
     <div>---------------------------------------------------------------------------------------------------------------------------------</div>
     <br>
-    <!-- <tabs/> -->
+    <tabs/>
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
     <refs/>
   </div>
 </template>
 
 <script>
-// import Tabs from './components/dynamicAndAsyncComponents/Tabs.vue'
+import Tabs from './components/dynamicAndAsyncComponents/Tabs.vue'
 import EmitCustom from './components/emitCustom/EmitCustom.vue'
 import Parent from './components/props/Parent.vue'
 import ProvideInject from './components/provideInject/ProvideInject.vue'
@@ -34,7 +37,7 @@ import ScopedSlot from './components/slots/ScopedSlot.vue'
 import Slots from './components/slots/Slots.vue'
 import Refs from './components/templateRefs/Refs.vue'
 export default {
-  components: { ProvideInject, Parent, EmitCustom, Slots, ScopedSlot, Refs },
+  components: { ProvideInject, Parent, EmitCustom, Slots, ScopedSlot, Tabs, Refs },
   name: 'App'
 }
 </script>
