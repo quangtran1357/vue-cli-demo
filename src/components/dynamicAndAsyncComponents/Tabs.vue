@@ -6,11 +6,14 @@
                 v-for="tab in tabs"
                 :key="tab.id"
                 :class="['tab-button', { active: currentTab === tab }]"
-                @click="currentTab = tab.component"
+                @click="changeTab(tab.component)"
             >
                 {{ tab.title }}
             </button>
-            <component :is="currentTabComponent" class="tab"></component>
+            <!-- <keep-alive>
+                <component :is="currentTab" class="tab"></component>
+            </keep-alive> -->
+            <component :is="currentTab" class="tab"></component>
         </div>
     </div>
 </template>
@@ -44,9 +47,14 @@ export default {
             ]
         }
     },
-    computed: {
-        currentTabComponent() {
-            return this.currentTab
+    // computed: {
+    //     currentTabComponent() {
+    //         return this.currentTab
+    //     }
+    // },
+    methods: {
+        changeTab(component) {
+            this.currentTab = component
         }
     }
 }

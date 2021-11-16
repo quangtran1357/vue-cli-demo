@@ -21,14 +21,24 @@
     <div>---------------------------------------------------------------------------------------------------------------------------------</div>
     <br>
     <tabs/>
+    <dynamic-component/>
+    <async-component/>
     <br>
     <div>---------------------------------------------------------------------------------------------------------------------------------</div>
     <br>
     <refs/>
+    <br>
+    <div>---------------------------------------------------------------------------------------------------------------------------------</div>
+    <br>
+    <lifecycle v-if="isShowLifecycle"/>
+    <button @click="isShowLifecycle = !isShowLifecycle">Toggle Lifecycle</button>
   </div>
 </template>
 
 <script>
+import {defineAsyncComponent} from 'vue'
+// import AsyncComponent from './components/dynamicAndAsyncComponents/AsyncComponent.vue'
+import DynamicComponent from './components/dynamicAndAsyncComponents/DynamicComponent.vue'
 import Tabs from './components/dynamicAndAsyncComponents/Tabs.vue'
 import EmitCustom from './components/emitCustom/EmitCustom.vue'
 import Parent from './components/props/Parent.vue'
@@ -36,9 +46,27 @@ import ProvideInject from './components/provideInject/ProvideInject.vue'
 import ScopedSlot from './components/slots/ScopedSlot.vue'
 import Slots from './components/slots/Slots.vue'
 import Refs from './components/templateRefs/Refs.vue'
+import Lifecycle from './components/lifecycle/Lifecycle.vue'
 export default {
-  components: { ProvideInject, Parent, EmitCustom, Slots, ScopedSlot, Tabs, Refs },
-  name: 'App'
+  components: {
+    ProvideInject, 
+    Parent, 
+    EmitCustom, 
+    Slots, 
+    ScopedSlot, 
+    Tabs, 
+    Refs, 
+    DynamicComponent,
+  // AsyncComponent
+    AsyncComponent: defineAsyncComponent(() => import('./components/dynamicAndAsyncComponents/AsyncComponent.vue')),
+    Lifecycle
+  },
+  name: 'App',
+  data() {
+    return {
+      isShowLifecycle: true
+    }
+  }
 }
 </script>
 
