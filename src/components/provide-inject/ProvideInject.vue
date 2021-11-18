@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {computed } from 'vue'
+import { computed } from 'vue'
 import ProvideInjectChild from './ProvideInjectChild.vue'
 export default {
   name: 'ProvideInject',

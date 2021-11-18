@@ -66,6 +66,18 @@ export default {
     return {
       isShowLifecycle: true
     }
+  },
+  mounted() {
+    // Cookie
+    // const d = new Date();
+    // d.setTime(d.getTime() + (5*1000));
+    // let expires = "expires="+ d.toUTCString();
+    // document.cookie = `username=Quang Tran; expires=${expires}`
+
+    // LocalStorage
+    // localStorage.setItem('dataDemoLocalStorage', 'demo demo demo')
+    // console.log(localStorage.getItem('dataDemoLocalStorage'))
+    // localStorage.removeItem('dataDemoLocalStorage')
   }
 }
 </script>
@@ -89,5 +101,28 @@ header {
   text-align: center;
   width: 90%;
   max-width: 40rem;
+}
+.is-favorite {
+    background-color: wheat
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 1rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+}
+h2 {
+  font-size: 2rem;
+  border-bottom: 4px solid #ccc;
+  color: #58004d;
+  margin: 0 0 1rem 0;
 }
 </style>

@@ -5,7 +5,17 @@ import App from './App.vue'
 // import * as util from './util.js'
 // import customNameByExportDefault from './util.js'
 
-createApp(App).mount('#app')
+const vue = createApp(App)
+// Mixin global
+// vue.mixin({
+//     data() {
+//         return {
+//             demoGlobal: 'demo global'
+//         }
+//     }
+// })
+// vue.component('base-button', BaseButton)
+vue.mount('#app')
 
 // console.log(addTwoNumbers(5, 10))
 

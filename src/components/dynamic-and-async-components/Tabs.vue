@@ -6,7 +6,7 @@
                 v-for="tab in tabs"
                 :key="tab.id"
                 :class="['tab-button', { active: currentTab === tab }]"
-                @click="changeTab(tab.component)"
+                @click="changeTab(tab.componentName)"
             >
                 {{ tab.title }}
             </button>
@@ -14,7 +14,7 @@
                 <component :is="currentTab" class="tab"></component>
             </keep-alive> -->
             <component :is="currentTab" class="tab"></component>
-        </div>
+        </div>  
     </div>
 </template>
 
@@ -22,36 +22,39 @@
 import TabHome from './TabHome.vue'
 import TabPost from './TabPost.vue'
 import TabArchive from './TabArchive.vue'
+import tabsMixin from '../../mixins/tabs.js'
+
 export default {
     name: 'Tabs',
+    mixins: [tabsMixin], // Mixin local
     components: {TabHome, TabPost, TabArchive},
     data() {
         return {
-            currentTab: TabHome,
+            currentTab: 'tab-home',
+            // currentTab: TabHome,
             tabs: [
                 {
                     id: 1,
                     component: TabHome,
-                    title: 'Tab Home'
+                    title: 'Tab Home',
+                    componentName: 'tab-home'
                 },
                 {
                     id: 2,
                     component: TabPost,
-                    title: 'Tab Post'
+                    title: 'Tab Post',
+                    componentName: 'tab-post'
                 },
                 {
                     id: 3,
                     component: TabArchive,
-                    title: 'Tab Archive'
+                    title: 'Tab Archive',
+                    componentName: 'tab-archive'
                 }
-            ]
+            ],
+            tabIndex: 10
         }
     },
-    // computed: {
-    //     currentTabComponent() {
-    //         return this.currentTab
-    //     }
-    // },
     methods: {
         changeTab(component) {
             this.currentTab = component
