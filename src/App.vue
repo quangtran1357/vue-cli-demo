@@ -37,28 +37,28 @@
 
 <script>
 import {defineAsyncComponent} from 'vue'
-// import AsyncComponent from './components/dynamicAndAsyncComponents/AsyncComponent.vue'
-import DynamicComponent from './components/dynamicAndAsyncComponents/DynamicComponent.vue'
-import Tabs from './components/dynamicAndAsyncComponents/Tabs.vue'
-import EmitCustom from './components/emitCustom/EmitCustom.vue'
+// import AsyncComponent from './components/dynamic-and-async-components/AsyncComponent.vue'
+import DynamicComponent from './components/dynamic-and-async-components/DynamicComponent.vue'
+import Tabs from './components/dynamic-and-async-components/Tabs.vue'
+import EmitCustom from './components/emit-custom/EmitCustom.vue'
 import Parent from './components/props/Parent.vue'
-import ProvideInject from './components/provideInject/ProvideInject.vue'
+import ProvideInject from './components/provide-inject/ProvideInject.vue'
 import ScopedSlot from './components/slots/ScopedSlot.vue'
 import Slots from './components/slots/Slots.vue'
-import Refs from './components/templateRefs/Refs.vue'
+import Refs from './components/template-refs/Refs.vue'
 import Lifecycle from './components/lifecycle/Lifecycle.vue'
 export default {
   components: {
-    ProvideInject, 
-    Parent, 
-    EmitCustom, 
-    Slots, 
-    ScopedSlot, 
-    Tabs, 
-    Refs, 
+    ProvideInject,
+    Parent,
+    EmitCustom,
+    Slots,
+    ScopedSlot,
+    Tabs,
+    Refs,
     DynamicComponent,
   // AsyncComponent
-    AsyncComponent: defineAsyncComponent(() => import('./components/dynamicAndAsyncComponents/AsyncComponent.vue')),
+    AsyncComponent: defineAsyncComponent(() => import('./components/dynamic-and-async-components/AsyncComponent.vue')),
     Lifecycle
   },
   name: 'App',
